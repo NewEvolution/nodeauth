@@ -1,0 +1,11 @@
+extends template
+block content
+  form
+    .input-group
+      label(for='email') Email
+      input#email(type='email', name='email')
+    .input-group
+      label(for='pass') Password
+      input#pass(type='password', name='password')
+    .input-group
+      input(type='submit', value='login')
