@@ -11,6 +11,12 @@ const app = express();
 app.set('view engine', 'jade');
 app.use(session({secret: secret}));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use((req, res, next) => {
+  req.session.count = req.session.count || 0; // eslint-disable-line no-magic-numbers
+  ++req.session.count;
+  console.log(req.session); // eslint-disable-line no-console
+  next();
+});
 
 const date = new Date();
 app.locals.title = 'NodeAuth';
