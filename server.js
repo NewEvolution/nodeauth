@@ -6,8 +6,14 @@ const port = process.env.PORT || localPort;
 
 const app = express();
 
+const date = new Date();
+app.locals.title = 'NodeAuth';
+app.locals.year = date.getFullYear()
+
+app.set('view engine', 'jade');
+
 app.get('/', (req, res) => {
-  res.send('I live, I hunger.');
+  res.render('index');
 });
 
 app.listen(port, () => {
