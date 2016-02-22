@@ -2,11 +2,14 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const localPort = 3000;
 const port = process.env.PORT || localPort;
+const secret = process.env.SECRET || 'DevPasswordYo';
 
 const app = express();
 app.set('view engine', 'jade');
+app.use(session({secret: secret}));
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const date = new Date();
