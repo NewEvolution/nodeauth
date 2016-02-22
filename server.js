@@ -29,6 +29,17 @@ app.get('/register', (req, res) => {
   res.render('register');
 });
 
+app.post('/register', (req, res) => {
+  if (req.body.password === req.body.repassword) {
+    res.redirect('/login');
+  } else {
+    res.render('register', {
+      email: req.body.email,
+      message: 'Passwords do not match'
+    });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`); // eslint-disable-line no-console
 });
