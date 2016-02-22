@@ -27,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(session({
   secret: secret,
+  resave: false,
+  saveUninitialized: true,
   store: new RedisStore()
 }));
 
@@ -34,7 +36,6 @@ app.use((req, res, next) => {
   req.session.visits = req.session.visits || {};
   req.session.visits[req.url] = req.session.visits[req.url] || 0; // eslint-disable-line no-magic-numbers
   ++req.session.visits[req.url];
-  console.log(req.session); // eslint-disable-line no-console
   next();
 });
 
