@@ -20,8 +20,11 @@ const MONGO_AUTH = MONGO_USER ? `${MONGO_USER}:${MONGO_PASS}@` : '';
 const MONGO_URL = `mongodb://${MONGO_AUTH}${MONGO_HOST}:${MONGO_PORT}/nodeauth`;
 
 const app = express();
+
 app.set('view engine', 'jade');
+
 app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(session({
   secret: secret,
   store: new RedisStore()
