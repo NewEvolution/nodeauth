@@ -1,0 +1,24 @@
+{
+  "name": "nodeauth",
+  "version": "1.0.0",
+  "description": "Authentication exploration in Node.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewEvolution/nodeauth.git"
+  },
+  "keywords": [
+    "authentication",
+    "node"
+  ],
+  "author": "Ryan Tanay <rtanay@gmail.com> (http://portfolio.ryantanay.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NewEvolution/nodeauth/issues"
+  },
+  "homepage": "https://github.com/NewEvolution/nodeauth#readme"
+}
