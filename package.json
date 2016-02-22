@@ -11,6 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/NewEvolution/nodeauth.git"
   },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "extends": "/Users/ryan/.eslint/personal.json"
+  },
   "keywords": [
     "authentication",
     "node"
@@ -20,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/NewEvolution/nodeauth/issues"
   },
-  "homepage": "https://github.com/NewEvolution/nodeauth#readme"
+  "homepage": "https://github.com/NewEvolution/nodeauth#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  }
 }
