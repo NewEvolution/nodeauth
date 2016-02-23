@@ -1,5 +1,7 @@
 extends template
 block content
+  if message
+    h2=message
   form(method='POST')
     .input-group
       label(for='email') Email
