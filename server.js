@@ -1,9 +1,11 @@
 'use strict';
 
 const express = require('express');
+const favicon = require('favicon'); // eslint-disable-line no-unused-vars
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const RedisStore = require('connect-redis')(session);
 
 const userRoutes = require('./lib/user/routes');
@@ -24,6 +26,8 @@ const app = express();
 app.set('view engine', 'jade');
 
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(methodOverride('_method'));
 
 app.use(session({
   secret: secret,
