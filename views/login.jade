@@ -1,13 +1,14 @@
 extends template
 block content
-  if message
-    h2=message
+  each msgs, type in messages
+    for msg in msgs
+      h3(class='bg-#{type}')=msg
   form(method='POST')
     .form-group
       label(for='email') Email
-      input#email(type='email', name='email', autofocus, required)
+      input#email.form-control(type='email', name='email', autofocus, required)
     .form-group
       label(for='pass') Password
-      input#pass(type='password', name='password', required)
+      input#pass.form-control(type='password', name='password', required)
     .form-group
       input.btn.btn-default(type='submit', value='Login')

@@ -6,12 +6,12 @@ block content
   form(method='POST')
     .form-group
       label(for='email') Email
-      input#email(type='email', name='email', value='#{addy}', autofocus, required)
+      input#email.form-control(type='email', name='email', value='#{addy}', autofocus, required)
     .form-group
       label(for='pass') Password
-      input#pass(type='password', name='password', required)
+      input#pass.form-control(type='password', name='password', required)
     .form-group
       label(for='repass') Repeat Password
-      input#repass(type='password', name='repassword', required)
+      input#repass.form-control(type='password', name='repassword', required)
     .form-group
       input.btn.btn-default(type='submit', value='Register')

@@ -37,7 +37,15 @@ app.use((req, res, next) => {
 
 // Define a user if no one is logged in
 app.use((req, res, next) => {
-  app.locals.user = req.user || {email: 'Guest'};
+  res.locals.user = req.user || {email: 'Guest'};
+  next();
+});
+
+// Grab login messages
+const flash = require('connect-flash');
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.messages = req.flash();
   next();
 });
 
@@ -62,6 +70,10 @@ app.get('/', (req, res) => {
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res) => {
+  res.status(404).send('Not Found'); // eslint-disable-line no-magic-numbers
+});
 
 const mongoose = require('mongoose');
 const localPort = 3000;
