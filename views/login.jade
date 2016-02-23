@@ -3,11 +3,11 @@ block content
   if message
     h2=message
   form(method='POST')
-    .input-group
+    .form-group
       label(for='email') Email
       input#email(type='email', name='email', autofocus, required)
-    .input-group
+    .form-group
       label(for='pass') Password
       input#pass(type='password', name='password', required)
-    .input-group
-      input(type='submit', value='Login')
+    .form-group
+      input.btn.btn-default(type='submit', value='Login')

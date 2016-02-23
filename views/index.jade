@@ -4,8 +4,8 @@ block content
   h3 Welcome #{user.email}!
   if user.email === 'Guest'
     form(action='/login', method='GET')
-      input(type='submit', value='Login')
-      button(formaction='/register') Register
+      input.btn.btn-default(type='submit', value='Login')
+      button.btn.btn-default(formaction='/register') Register
   else
     form(action='/login?_method=delete', method='POST')
-      input(type='submit', value='Logout')
+      input.btn.btn-default(type='submit', value='Logout')

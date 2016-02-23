@@ -43,7 +43,16 @@ app.use((req, res, next) => {
 
 const date = new Date();
 app.locals.title = 'NodeAuth';
-app.locals.year = date.getFullYear()
+app.locals.year = date.getFullYear();
+
+const path = require('path');
+const nodeSass = require('node-sass-middleware');
+app.use(nodeSass({
+  src: path.join(__dirname, 'public'),
+  dest: path.join(__dirname, 'public'),
+  indentedSyntax: true,
+  sourceMap: true
+}));
 
 const userRoutes = require('./lib/user/routes');
 app.use(userRoutes);
@@ -51,6 +60,8 @@ app.use(userRoutes);
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 const mongoose = require('mongoose');
 const localPort = 3000;

@@ -1,0 +1,25 @@
+{
+  "name": "nodeauth",
+  "description": "Authentication exploration in Node.js",
+  "main": "server.js",
+  "authors": [
+    "Ryan Tanay <rtanay@gmail.com> (http://portfolio.ryantanay.com/)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "authentication",
+    "node"
+  ],
+  "homepage": "https://github.com/NewEvolution/nodeauth",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
