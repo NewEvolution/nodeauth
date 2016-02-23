@@ -37,7 +37,7 @@ app.use((req, res, next) => {
 
 // Define a user if no one is logged in
 app.use((req, res, next) => {
-  app.locals.user = req.session.user || {email: 'Guest'};
+  app.locals.user = req.user || {email: 'Guest'};
   next();
 });
 
