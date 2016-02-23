@@ -23,6 +23,10 @@ app.use(session({
   store: new RedisStore()
 }));
 
+const passport = require('passport');
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Add visit information to session object
 app.use((req, res, next) => {
   req.session.visits = req.session.visits || {};
