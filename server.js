@@ -62,8 +62,8 @@ app.use(nodeSass({
   sourceMap: true
 }));
 
-const userRoutes = require('./lib/user/routes');
-app.use(userRoutes);
+const routes = require('./routes/');
+app.use(routes);
 
 app.get('/', (req, res) => {
   res.render('index');

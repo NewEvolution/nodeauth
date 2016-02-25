@@ -1,34 +1,32 @@
 'use strict';
 
 const passport = require('passport');
-const express = require('express');
-const router = express.Router();
-const User = require('./model');
+const User = require('../models/user');
 
-require('./local');
+require('../lib/local');
 
-router.get('/login', (req, res) => {
+module.exports.index = (req, res) => {
   res.render('login');
-});
+};
 
-router.post('/login', passport.authenticate('local', {
+module.exports.login = passport.authenticate('local', {
   successRedirect: '/',
   failureFlash: 'Email or password incorrect',
   failureRedirect: '/login'
-}));
+});
 
-router.delete('/login', (req, res) => {
+module.exports.delete = (req, res) => {
   req.session.regenerate(err => {
     if (err) throw err;
     res.redirect('/');
   });
-});
+};
 
-router.get('/register', (req, res) => {
+module.exports.register = (req, res) => {
   res.render('register');
-});
+};
 
-router.post('/register', (req, res) => {
+module.exports.new = (req, res) => {
   if (req.body.password === req.body.repassword) {
     User.findOne({email: req.body.email}, (err, user) => {
       if (err) throw err;
@@ -47,6 +45,5 @@ router.post('/register', (req, res) => {
       message: 'Passwords do not match'
     });
   }
-});
+};
 
-module.exports = router;
