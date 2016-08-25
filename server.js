@@ -30,7 +30,7 @@ app.use(passport.session());
 // Add visit information to session object
 app.use((req, res, next) => {
   req.session.visits = req.session.visits || {};
-  req.session.visits[req.url] = req.session.visits[req.url] || 0; // eslint-disable-line no-magic-numbers
+  req.session.visits[req.url] = req.session.visits[req.url] || 0;
   ++req.session.visits[req.url];
   next();
 });
